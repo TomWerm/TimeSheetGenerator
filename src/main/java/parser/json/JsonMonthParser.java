@@ -74,15 +74,6 @@ public class JsonMonthParser implements IMonthParser {
     }
 
     @Override
-    public TimeSpan getVacation() throws ParseException {
-        try {
-            return parse().getVacation();
-        } catch (JsonProcessingException e) {
-            throw new ParseException(e.getMessage());
-        }
-    }
-
-    @Override
     public TimeSpan getSuccTransfer() throws ParseException {
         try {
             return parse().getSuccTransfer();
@@ -116,7 +107,8 @@ public class JsonMonthParser implements IMonthParser {
             date,
             entry.getStart(),
             entry.getEnd(),
-            entry.getPause()
+            entry.getPause(),
+            entry.getVacation()
         );
     }
     
